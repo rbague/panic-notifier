@@ -1,4 +1,2 @@
-github.com/go-chi/chi v3.3.3+incompatible h1:KHkmBEMNkwKuK4FdQL7N2wOeB9jnIx7jR5wsuSBEFI8=
-github.com/go-chi/chi v3.3.3+incompatible/go.mod h1:eB3wogJHnLi3x/kFX2A+IbTBlXxmMeXJVKy9tTv1XzQ=
 github.com/rbague/slack-webhook v0.0.0-20181121231515-18c089944a31 h1:hGaFXs5TjBRgSrG3ZojzBhJyKakguwNR2BqG2/YxhHE=
 github.com/rbague/slack-webhook v0.0.0-20181121231515-18c089944a31/go.mod h1:uD3N/ZsQnrwWsVNVO3jXSgV0TIozNEhCh502fllWrqw=
