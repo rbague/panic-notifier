@@ -3,7 +3,7 @@ Panic notifier is based in the [Exception Notification](https://github.com/smart
 
 ---
 The purpose of this library is to receive a notification into an integration everytime a webserver panics.
-Right now, the built-in notifiers can deliver notifications to Slack and custom WebHooks.
+Right now, the built-in notifiers can deliver notifications to Slack and via custom WebHooks.
 
 ## Getting Started
 ```go
@@ -31,7 +31,7 @@ func main() {
 ## Integrations
 panic-notifier relies on integrations to deliver the notifications to the different services, here are the default ones:
 * [Slack](#slack)
-* [Custom WebHooks](#custom-webhooks)
+* [WebHooks](#webhooks)
 
 But you could easily implement your [custom integration](#custom-integration).
 
@@ -60,8 +60,8 @@ For production uses, recommend calling the following method with a `*http.Client
 slack.SetHTTPClient(*http.Client)
 ```
 
-### Custom WebHooks
-This integration deliver the notification to custom webhooks over the HTTP protocol.
+### WebHooks
+This integration delivers the notification via the HTTP protocol.
 Right now each request is sent using the `POST` method.
 
 #### Usage
@@ -83,12 +83,25 @@ func main() {
 
 The WebHook type exposes its `Client` field, so the http.Client can be changed for production uses.
 
+### Custom integration
+Creating a custom integration is as easy as implementing the integration.Integration interface.
+```go
+// Integration is the interface used to deliver a notification of a panic
+type Integration interface {
+	// StackTraceLines return the number of stack trace lines
+	// to be sent in each notification
+	StackTraceLines() int
+
+	// Deliver delivers the given notification and returns an error if any.
+	Deliver(*Notification) error
+}
+```
+
 ## TODO
 Add integrations for:
 - [x] Slack
 - [ ] Email
-- [ ] Telegram
-- [x] Custom webhooks
+- [x] WebHooks
 
 Other:
 - [ ] Add option to send custom data
