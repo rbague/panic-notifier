@@ -1,4 +1,7 @@
 # PANIC-NOTIFIER
+[![GoDoc](https://godoc.org/github.com/rbague/panic-notifier/integration?status.svg)](https://godoc.org/github.com/rbague/panic-notifier/integration)
+[![Go Report Card](https://goreportcard.com/badge/github.com/rbague/panic-notifier)](https://goreportcard.com/report/github.com/rbague/panic-notifier)
+
 Panic notifier is based in the [Exception Notification](https://github.com/smartinez87/exception_notification/) ruby gem. You should definitely give it a look.
 
 ---
