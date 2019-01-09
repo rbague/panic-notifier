@@ -9,17 +9,17 @@ import (
 )
 
 // Slack implements the Integration interface and uses Slack's
-// Incoming Webhooks API to post the notification
+// Incoming Webhooks API to deliver the notifications
 type Slack struct {
 	client *webhook.Client
 }
 
-// NewSlack returns an itegration that will post the notification into slack
+// NewSlack returns a slack itegration
 func NewSlack(url string) *Slack {
 	return &Slack{client: webhook.NewClient(url)}
 }
 
-// SetHTTPClient sets the http.Client used to post the notification
+// SetHTTPClient sets the http.Client used to deliver the notification
 func (s *Slack) SetHTTPClient(c *http.Client) {
 	s.client.Client = c
 }

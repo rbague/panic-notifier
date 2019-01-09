@@ -8,10 +8,10 @@ import (
 // Integration is the interface used to deliver a notification of a panic
 type Integration interface {
 	// StackTraceLines return the number of stack trace lines
-	// to be displayed in each notification
+	// to be sent in each notification
 	StackTraceLines() int
 
-	// Deliver delivers the given notification into its integration.
+	// Deliver delivers the given notification and returns an error if any.
 	Deliver(*Notification) error
 }
 
@@ -23,7 +23,7 @@ type Notification struct {
 	Request *Request
 }
 
-// Request holds information about the request that made the panic
+// Request holds information about the request that caused the panic
 type Request struct {
 	Method string
 	URI    string // the relative url

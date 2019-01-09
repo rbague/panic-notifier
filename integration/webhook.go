@@ -7,13 +7,14 @@ import (
 	"net/http"
 )
 
-// WebHook is the type used to deliver notifications to custom webhooks
+// WebHook implements the Integration interface
+// and delivers the notifications over the HTTP protocol
 type WebHook struct {
 	URL    string
 	Client *http.Client
 }
 
-// NewWebHook returns an
+// NewWebHook returns a webhook integration
 func NewWebHook(url string) *WebHook {
 	return &WebHook{
 		URL:    url,
