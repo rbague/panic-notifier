@@ -1,0 +1,8 @@
+Server panicked while {{.Request.Method}} to {{.Request.URI}} was being processed
+
+Error: {{.Err}}
+Hostname: {{.Host}}
+Stack Trace:
+{{range $i, $line := .Stack}}
+    {{$line}}
+{{end}}

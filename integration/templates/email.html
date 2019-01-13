@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Panic</title>
+  </head>
+  <body>
+    <div style="width: 100%;">
+      <h3 style="font-weight: normal;">
+        Server panicked while <strong>{{.Request.Method}}</strong> to <strong>{{.Request.URI}}</strong> was being processed
+      </h3>
+      <hr/>
+
+      <div style="border-left: 2px solid #cc0000; border-radius: 5px 0 0 5px; padding: 10px; margin-top: 20px;">
+        <div>
+          <strong>Error</strong><br/>
+          <span>{{.Err}}</span>
+        </div>
+
+        <div style="margin-top: 20px">
+          <strong>Hostname</strong><br/>
+          <span>{{.Host}}</span>
+        </div>
+
+        <div style="margin-top: 20px">
+            <strong>Stack Trace</strong><br/>
+            <code style="display: block; margin-left: 15px;">
+              {{range $i, $line := .Stack}}
+                {{$line}}<br/>
+              {{end}}
+            </code>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
